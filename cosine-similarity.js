@@ -4,14 +4,19 @@ export const cosineSimilarity = (a, b) => {
   }
 
   let dotProduct = 0;
+  let magnitudeA = 0;
+  let magnitudeB = 0;
+
   for (let i = 0; i < a.length; i++) {
     dotProduct += a[i] * b[i];
+    magnitudeA += a[i] * a[i];
+    magnitudeB += b[i] * b[i];
   }
 
-  const magnitudeA = Math.sqrt(a.reduce((accum, e) => (accum += e * e), 0));
-  const magnitudeB = Math.sqrt(b.reduce((accum, e) => (accum += e * e), 0));
+  magnitudeA = Math.sqrt(magnitudeA);
+  magnitudeB = Math.sqrt(magnitudeB);
 
-  const similarity = dotProduct / (magnitudeA * magnitudeB);
+  const similarity = dotProduct / magnitudeA * magnitudeB);
 
   return similarity;
 };
