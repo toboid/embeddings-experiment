@@ -1,8 +1,8 @@
 import { writeFileSync } from 'node:fs';
 import { WriteMode } from 'vectordb';
-import { connect } from './connect-to-db.js';
-import { getEmbeddings } from './get-embedding.js';
-import { reviews } from './data/reviews.js';
+import { connect } from '../lib/connect-to-db.js';
+import { getEmbeddings } from '../lib/get-embedding.js';
+import { reviews } from '../../data/reviews.js';
 
 const main = async () => {
   const db = await connect();

@@ -11,19 +11,34 @@ This script is responsible for generating embeddings for each hotel review and s
 To run this script from the command line, use the following command:
 
 ```sh
-node --env-file=.env index.js 
+node --env-file=.env ./src/scripts/index-reviews.js 
 ```
 
-### find-similar.js
+### find-similar-lancedb.js
 
-This script allows users to semantically query the reviews based on a phrase. It takes a question as a command line argument, generates an embedding for the question, and then queries the database for the five most similar reviews.
+This script allows users to semantically query the reviews based on a phrase. It takes a question as a command line argument, generates an embedding for the question, and then queries lancedb for the five most similar reviews.
+
+The 5 printed reviews will be the same as those printed by `find-similar-simple.js`.
 
 To run this script from the command line, use the following command:
 
 ```sh
-node --env-file=.env find-similar.js "tell me about the location"
+node --env-file=.env ./src/scripts/find-similar-lance-db.js "tell me about the location"
 ```
 
 Replace `"tell me about the location"` with your actual question.
 
+### find-similar-simple.js
+
+This script allows users to semantically query the reviews based on a phrase. It takes a question as a command line argument, generates an embedding for the question. Then it calculates the cosine similarity of each review to the question and prints the top 5. 
+
+The 5 printed reviews will be the same as those printed by `find-similar-lancedb.js`.
+
+To run this script from the command line, use the following command:
+
+```sh
+node --env-file=.env ./src/scripts/find-similar-lance-db.js "tell me about the location"
+```
+
+Replace `"tell me about the location"` with your actual question.
 

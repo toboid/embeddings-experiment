@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
-import { getEmbeddings } from './get-embedding.js';
-import { cosineSimilarity } from './cosine-similarity.js';
+import { getEmbeddings } from '../lib/get-embedding.js';
+import { cosineSimilarity } from '../lib/cosine-similarity.js';
 
 const main = async () => {
   console.log('Args', process.argv);

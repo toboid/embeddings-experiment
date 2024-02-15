@@ -16,7 +16,7 @@ export const cosineSimilarity = (a, b) => {
   magnitudeA = Math.sqrt(magnitudeA);
   magnitudeB = Math.sqrt(magnitudeB);
 
-  const similarity = dotProduct / magnitudeA * magnitudeB);
+  const similarity = dotProduct / magnitudeA * magnitudeB;
 
   return similarity;
 };

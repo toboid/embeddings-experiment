@@ -1,5 +1,5 @@
-import { connect } from './connect-to-db.js';
-import { getEmbeddings } from './get-embedding.js';
+import { connect } from '../lib/connect-to-db.js';
+import { getEmbeddings } from '../lib/get-embedding.js';
 
 const main = async () => {
   const db = await connect();
