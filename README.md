@@ -42,3 +42,14 @@ node --env-file=.env ./src/scripts/find-similar-lance-db.js "tell me about the l
 
 Replace `"tell me about the location"` with your actual question.
 
+### get-summary.js
+
+This script allows users to semantically query the reviews based on a phrase and get an AI summary of the results. It takes a question as a command line argument, generates an embedding for the question. Then it calculates the cosine similarity of each review to the question. It passes the top matching 5 reviews to an LLM to get a summary, then prints the summary along wit the 5 source reviews.
+
+To run this script from the command line, use the following command:
+
+```sh
+node --env-file=.env ./src/scripts/get-summary.js "tell me about the location"
+```
+
+Replace `"tell me about the location"` with your actual question.
