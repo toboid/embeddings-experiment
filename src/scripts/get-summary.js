@@ -8,25 +8,25 @@ const main = async () => {
 
   const [questionEmbedding] = await getEmbeddings(question);
 
-  const sentenceEmbeddings = JSON.parse(
-    readFileSync('./data/sentence-embeddings.json')
+  const reviewEmbeddings = JSON.parse(
+    readFileSync('./data/review-embeddings.json')
   );
 
-  const matchingSentenceText = sentenceEmbeddings
+  const matchingReviewText = reviewEmbeddings
     .map((e) => ({
       ...e,
       _distance: cosineSimilarity(e.vector, questionEmbedding),
     }))
     .sort((a, b) => b._distance - a._distance)
     .slice(0, 5)
-    .map(({ sentence, ...rest }) => sentence);
+    .map(({ review, ...rest }) => review);
 
-  const summary = await getSummary(question, matchingSentenceText);
+  const summary = await getSummary(question, matchingReviewText);
 
   console.log('\n\n-----Summary-----');
   console.log(summary);
-  console.log('\n\n-----Source sentences from reviews-----');
-  console.log(matchingSentenceText.join('\n\n'));
+  console.log('\n\n-----Source reviews-----');
+  console.log(matchingReviewText.join('\n\n'));
 };
 
 main().then(console.log, console.error);
